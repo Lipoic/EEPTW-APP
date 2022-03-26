@@ -18,6 +18,6 @@ jobs:
             await github.rest.actions.createWorkflowDispatch({
               owner: 'EDPTW',
               repo: 'EDPTW.github.io',
-              workflow_id: 'workflows/deploy.yaml',
+              workflow_id: 'deploy.yaml',
               ref: 'main'
             });
