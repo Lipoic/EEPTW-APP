@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -18,21 +19,139 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description"
+    content="正在開發中的台灣教育平台，由來自台灣的國中生菘菘主導開發，希冀讓所有學生不受空間限制盡情學習知識，讓老師們有個實用、便利的教學平台，結合電子書、考試、課程、教室、視訊教學、自主學習等多樣功能。">
+  <meta property="og:image" content="https://raw.githubusercontent.com/EDPTW/.github/main/images/EDPTW_Logo.png" />
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="edpf_app">
+  <meta name="apple-mobile-web-app-title" content="輕菘教育平台">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-  <title>edpf_app</title>
+  <title>輕菘教育平台</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="preload" href="main.dart.js" as="script">
+  <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.js" as="script">
+  <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.wasm" as="fetch"
+    crossorigin="anonymous">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .logo img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .logo p {
+      color: #ffffff;
+      font: sans-serif;
+      font-size: 25px;
+      font-display: bold;
+      margin-left: 75px;
+      margin-top: -20px;
+      margin-bottom: 5px;
+    }
+
+    .loading div {
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      transform: scale(0);
+      background-color: red;
+      animation: scaling 2s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    .loading div:nth-child(0) {
+      animation-delay: 0s;
+    }
+
+    .loading div:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .loading div:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loading div:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .loading div:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .loading div:nth-child(5) {
+      animation-delay: 1s;
+    }
+
+    .loading div {
+      height: 23px;
+      width: 23px;
+      border-radius: 50%;
+      transform: scale(0);
+    }
+
+
+    @keyframes scaling {
+
+      0%,
+      100% {
+        transform: scale(0.2);
+        background-color: #38f3b2;
+      }
+
+      40% {
+        transform: scale(1);
+        background-color: #147df5;
+      }
+
+      60% {
+        transform: scale(1);
+        background-color: #3d4ff5;
+      }
+
+      80% {
+        transform: scale(1);
+        background-color: #743df5;
+      }
+    }
+  </style>
 </head>
-<body>
+
+<body style="background-color: rgb(34, 33, 33);">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/assets/images/logo.svg" alt="">
+      <p>Easy Education Platform | 輕菘教育平台</p>
+    </div>
+    <div class="loading">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -101,4 +220,5 @@
     }
   </script>
 </body>
+
 </html>
