@@ -8,15 +8,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  Web:
+  dispatch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
         with:
           script: |
             await github.rest.actions.createWorkflowDispatch({
-              'EDPTW',
-              'EDPTW-APP',
-              'workflows/deploy.yaml',
-              'main'
+              owner: 'EDPTW',
+              repo: 'EDPTW-APP',
+              workflow_id: 'workflows/deploy.yaml',
+              ref: 'main'
             });
