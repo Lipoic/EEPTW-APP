@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "edpf_app" "\0"
+            VALUE "FileDescription", "eepf_app" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "edpf_app" "\0"
+            VALUE "InternalName", "eepf_app" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "edpf_app.exe" "\0"
-            VALUE "ProductName", "edpf_app" "\0"
+            VALUE "OriginalFilename", "eepf_app.exe" "\0"
+            VALUE "ProductName", "eepf_app" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,6 +1,6 @@
 {
-    "name": "edpf_app",
-    "short_name": "edpf_app",
+    "name": "eepf_app",
+    "short_name": "eepf_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
