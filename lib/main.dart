@@ -4,13 +4,23 @@ import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Init.before();
   runApp(const EEPTWAPP());
-
-  Init.common();
 }
 
-class EEPTWAPP extends StatelessWidget {
+class EEPTWAPP extends StatefulWidget {
   const EEPTWAPP({Key? key}) : super(key: key);
+
+  @override
+  State<EEPTWAPP> createState() => _EEPTWAPPState();
+}
+
+class _EEPTWAPPState extends State<EEPTWAPP> {
+  @override
+  void initState() {
+    super.initState();
+    Init.after();
+  }
 
   @override
   Widget build(BuildContext context) {
