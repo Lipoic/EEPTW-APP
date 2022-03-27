@@ -45,24 +45,24 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: build/app/outputs/flutter-apk/app-release.apk
-          name: Android Apk
-  Ios:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Cache flutter
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/flutter
-          key: ${{ runner.os }}-flutter-2.12.0-4.1.pre
-      - uses: subosito/flutter-action@master
-        with:
-          channel: beta
-          flutter-version: 2.12.0-4.1.pre
-      - name: Build
-        run: flutter build ipa --release
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          path: build/ios/archive
-          name: Ios archive.zip
+          name: Android APK
+  # Ios:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Cache flutter
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: /opt/hostedtoolcache/flutter
+  #         key: ${{ runner.os }}-flutter-2.12.0-4.1.pre
+  #     - uses: subosito/flutter-action@master
+  #       with:
+  #         channel: beta
+  #         flutter-version: 2.12.0-4.1.pre
+  #     - name: Build
+  #       run: flutter build ipa --release
+  #     - name: Upload artifacts
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         path: build/ios/archive
+  #         name: Ios archive.zip
