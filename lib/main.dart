@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const EDPTWAPP());
+  runApp(const EEPTWAPP());
 }
 
-class EDPTWAPP extends StatelessWidget {
-  const EDPTWAPP({Key? key}) : super(key: key);
+class EEPTWAPP extends StatelessWidget {
+  const EEPTWAPP({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Easy Education Platform",
+      title: "EEPTW | 輕菘教育平台",
       theme: ThemeData(
         primarySwatch: const MaterialColor(
           0xFF566CE7,
