@@ -1,7 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:universal_html/html.dart';
 
 void main() {
   runApp(const EEPTWAPP());
+
+  if (kIsWeb) {
+    final loaderContainer = document.getElementsByClassName('container');
+    if (loaderContainer.isNotEmpty) {
+      loaderContainer.first.remove();
+    }
+  }
 }
 
 class EEPTWAPP extends StatelessWidget {
@@ -11,23 +20,11 @@ class EEPTWAPP extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "EEPTW | 輕菘教育平台",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: const MaterialColor(
-          0xFF566CE7,
-          <int, Color>{
-            50: Color.fromARGB(255, 89, 147, 241),
-            100: Color.fromARGB(255, 85, 145, 235),
-            200: Color.fromARGB(255, 45, 107, 241),
-            300: Color.fromARGB(255, 70, 82, 246),
-            400: Color(0xFF42A5F5),
-            500: Color(0xFF566CE7),
-            600: Color(0xFF1E88E5),
-            700: Color(0xFF1976D2),
-            800: Color(0xFF1565C0),
-            900: Color(0xFF0D47A1),
-          },
-        ),
-      ),
+          brightness: Brightness.dark,
+          primarySwatch: Colors.indigo,
+          useMaterial3: true),
       home: const HomePage(),
     );
   }
@@ -45,9 +42,36 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leadingWidth: 48,
+        leading: Image.asset("assets/images/logo_no_outline.png"),
+        titleSpacing: 0,
         title: const Text("輕菘教育平台"),
       ),
-      body: Column(),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildIdentityButton("我是學生"),
+            const SizedBox(width: 20),
+            _buildIdentityButton("我是老師"),
+            const SizedBox(width: 20),
+            _buildIdentityButton("我是家長"),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SizedBox _buildIdentityButton(String text) {
+    return SizedBox(
+      width: 150,
+      height: 50,
+      child: ElevatedButton(
+          child: Text(
+            text,
+            style: const TextStyle(fontSize: 20),
+          ),
+          onPressed: () {}),
     );
   }
 }
