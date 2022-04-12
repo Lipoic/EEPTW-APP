@@ -1,12 +1,12 @@
 name: eepf_app
-description: A new Flutter project.
+description: Easy Education Platform APP
 
 publish_to: "none"
 
-version: 1.0.0+1
+version: 0.0.1
 
 environment:
-  sdk: ">=2.17.0-182.1.beta <3.0.0"
+  sdk: ">=2.16 <3.0.0"
 
 dependencies:
   flutter:

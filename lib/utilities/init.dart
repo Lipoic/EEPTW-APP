@@ -8,7 +8,7 @@ class Init {
 
     void web() {
       html.Element? base = html.document.querySelector('base');
-
+      
       if (base != null) {
         base.setAttribute("href", "/");
       } else {
