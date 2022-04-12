@@ -1,14 +1,19 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_strategy/url_strategy.dart';
 
 class Init {
   static void before() {
-    void io() {}
+    void common() {
+      WidgetsFlutterBinding.ensureInitialized();
+    }
+
+    void vm() {}
 
     void web() {
       html.Element? base = html.document.querySelector('base');
-      
+
       if (base != null) {
         base.setAttribute("href", "/");
       } else {
@@ -18,15 +23,16 @@ class Init {
       setPathUrlStrategy();
     }
 
+    common();
     if (kIsWeb) {
       web();
     } else {
-      io();
+      vm();
     }
   }
 
   static void after() {
-    void io() {}
+    void vm() {}
 
     void web() {
       final loaderContainer = html.document.getElementsByClassName('container');
@@ -38,7 +44,7 @@ class Init {
     if (kIsWeb) {
       web();
     } else {
-      io();
+      vm();
     }
   }
 }

@@ -3,8 +3,8 @@ import 'package:eepf_app/utilities/init.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   Init.before();
+
   runApp(const EEPTWAPP());
 }
 
@@ -53,37 +53,59 @@ class _HomePageState extends State<HomePage> {
         titleSpacing: 0,
         title: const Text("輕菘教育平台"),
       ),
-      body: Center(
-          child: ListView(
+      body: Column(
         children: [
-          const Text("歡迎來到輕菘教育平台",
-              textAlign: EEPTWTextTheme.align, style: EEPTWTextTheme.title),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildIdentityButton("我是學生"),
-              const SizedBox(width: 20),
-              _buildIdentityButton("我是老師"),
-              const SizedBox(width: 20),
-              _buildIdentityButton("我是家長"),
-            ],
+          Expanded(
+            child: ListView(
+              children: [
+                const Text("我是",
+                    style: TextStyle(fontSize: 50),
+                    textAlign: EEPTWTextTheme.align),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildIdentityButton("學生", onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => const AlertDialog(
+                                title: Text("TO DO"),
+                              ));
+                    }),
+                    const SizedBox(width: 20),
+                    _buildIdentityButton("老師"),
+                    const SizedBox(width: 20),
+                    _buildIdentityButton("家長"),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                const Text("特色功能",
+                    style: EEPTWTextTheme.title,
+                    textAlign: EEPTWTextTheme.align),
+                const Divider(),
+                const ColoredBox(
+                    color: Colors.black,
+                    child: SizedBox(width: 50, height: 250)),
+              ],
+            ),
           ),
+          const Divider(),
+          const Text("頁腳 1"),
+          const Text("頁腳 2"),
         ],
-      )),
+      ),
     );
   }
 
-  SizedBox _buildIdentityButton(String text) {
+  SizedBox _buildIdentityButton(String text, {Function()? onPressed}) {
     return SizedBox(
-      width: 150,
-      height: 50,
+      height: 55,
       child: ElevatedButton(
           child: Text(
             text,
-            style: const TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 35),
           ),
-          onPressed: () {}),
+          onPressed: onPressed),
     );
   }
 }
