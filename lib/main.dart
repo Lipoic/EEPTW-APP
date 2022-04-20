@@ -82,6 +82,7 @@ class _HomePageState extends State<HomePage> {
                 const Text("特色功能",
                     style: EEPTWTextTheme.title,
                     textAlign: EEPTWTextTheme.align),
+                const Text(""),
                 const Divider(),
                 const ColoredBox(
                     color: Colors.black,
