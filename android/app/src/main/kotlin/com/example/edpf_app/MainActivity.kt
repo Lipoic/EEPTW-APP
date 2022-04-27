@@ -1,4 +1,4 @@
-package com.example.eepf_app
+package com.example.eeptw_app
 
 import io.flutter.embedding.android.FlutterActivity
 
