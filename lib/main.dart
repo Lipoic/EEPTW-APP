@@ -30,6 +30,10 @@ class _EEPTWAPPState extends State<EEPTWAPP> {
       theme: ThemeData(
           brightness: Brightness.dark,
           primarySwatch: Colors.indigo,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  primary: const Color.fromARGB(190, 46, 160, 253),
+                  onPrimary: Colors.white)),
           useMaterial3: true),
       home: const HomePage(),
     );
@@ -52,12 +56,24 @@ class _HomePageState extends State<HomePage> {
         leading: Image.asset("assets/images/logo_no_outline.png"),
         titleSpacing: 0,
         title: const Text("輕菘教育平台"),
+        actions: [
+          ElevatedButton(
+              onPressed: () {
+                // TOOD: Login account.
+                showDialog(
+                    context: context,
+                    builder: (context) =>
+                        const AlertDialog(title: Text("登入帳號")));
+              },
+              child: const Text("登入帳號"))
+        ],
       ),
       body: Column(
         children: [
           Expanded(
             child: ListView(
               children: [
+                ElevatedButton(onPressed: () {}, child: const Text("立即開始!")),
                 const Text("我是",
                     style: TextStyle(fontSize: 50),
                     textAlign: EEPTWTextTheme.align),
